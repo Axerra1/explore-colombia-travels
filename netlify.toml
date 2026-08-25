@@ -1,0 +1,15 @@
+# Se despliega tal cual: el HTML ya viene armado, aquí no se compila nada.
+[build]
+  publish = "."
+  command = ""
+
+# El panel es una sola página; sin esto sus rutas internas dan 404.
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[headers]]
+  for = "/contenido/*"
+  [headers.values]
+    Cache-Control = "no-cache"

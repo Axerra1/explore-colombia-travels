@@ -1,0 +1,244 @@
+{
+  "items": [
+    {
+      "nombre": "Trekking Serranía",
+      "precio": "$190.000",
+      "detalle": "8 horas · PNN Yariguíes · Guía especializado, seguro básico e hidratación · Nivel intermedio",
+      "categoria": "PNN Yariguíes",
+      "foto": "fotos/tour-1.jpg",
+      "activo": true,
+      "traducciones": {
+        "en": {
+          "nombre": "Serranía Trek",
+          "detalle": "8 hours · Yariguíes National Park · Specialist guide, basic insurance and hydration · Intermediate level",
+          "categoria": "Yariguíes National Park"
+        },
+        "fr": {
+          "nombre": "Trek de la Serranía",
+          "detalle": "8 heures · Parc national Yariguíes · Guide spécialisé, assurance de base et hydratation · Niveau intermédiaire",
+          "categoria": "Parc national Yariguíes"
+        },
+        "pt": {
+          "nombre": "Trekking da Serranía",
+          "detalle": "8 horas · PNN Yariguíes · Guia especializado, seguro básico e hidratação · Nível intermediário",
+          "categoria": "PNN Yariguíes"
+        },
+        "zh": {
+          "nombre": "亚里圭埃斯山脊徒步",
+          "detalle": "8 小时 · 亚里圭埃斯国家公园 · 专业向导、基础保险与饮水 · 中等强度",
+          "categoria": "亚里圭埃斯国家公园"
+        }
+      }
+    },
+    {
+      "nombre": "Cacaocultor por un día",
+      "precio": "$150.000",
+      "detalle": "4 horas · San Vicente de Chucurí · Guía local, materiales y degustación de chocolate artesanal · Todas las edades",
+      "categoria": "Turismo cultural",
+      "foto": "fotos/tour-2.jpg",
+      "activo": true,
+      "traducciones": {
+        "en": {
+          "nombre": "Cacao Farmer for a Day",
+          "detalle": "4 hours · San Vicente de Chucurí · Local guide, materials and artisanal chocolate tasting · All ages",
+          "categoria": "Cultural tourism"
+        },
+        "fr": {
+          "nombre": "Cacaoculteur d'un jour",
+          "detalle": "4 heures · San Vicente de Chucurí · Guide local, matériel et dégustation de chocolat artisanal · Tous âges",
+          "categoria": "Tourisme culturel"
+        },
+        "pt": {
+          "nombre": "Cacauicultor por um dia",
+          "detalle": "4 horas · San Vicente de Chucurí · Guia local, materiais e degustação de chocolate artesanal · Todas as idades",
+          "categoria": "Turismo cultural"
+        },
+        "zh": {
+          "nombre": "一日可可农体验",
+          "detalle": "4 小时 · San Vicente de Chucurí · 当地向导、材料与手工巧克力品尝 · 适合各年龄",
+          "categoria": "文化体验"
+        }
+      }
+    },
+    {
+      "nombre": "Ceiba Barrigona",
+      "precio": "$220.000",
+      "detalle": "6 horas · Mesa de los Santos · Acompañamiento técnico, herramientas e hidratación · Todas las edades",
+      "categoria": "Siembra con propósito",
+      "foto": "fotos/tour-3.jpg",
+      "activo": true,
+      "traducciones": {
+        "en": {
+          "nombre": "Ceiba Barrigona Planting",
+          "detalle": "6 hours · Mesa de los Santos · Technical support, tools and hydration · All ages",
+          "categoria": "Planting with purpose"
+        },
+        "fr": {
+          "nombre": "Plantation de Ceiba Barrigona",
+          "detalle": "6 heures · Mesa de los Santos · Accompagnement technique, outils et hydratation · Tous âges",
+          "categoria": "Planter avec un but"
+        },
+        "pt": {
+          "nombre": "Plantio de Ceiba Barrigona",
+          "detalle": "6 horas · Mesa de los Santos · Acompanhamento técnico, ferramentas e hidratação · Todas as idades",
+          "categoria": "Plantar com propósito"
+        },
+        "zh": {
+          "nombre": "大腹木棉种植体验",
+          "detalle": "6 小时 · Mesa de los Santos · 技术指导、工具与饮水 · 适合各年龄",
+          "categoria": "种下希望"
+        }
+      }
+    },
+    {
+      "nombre": "PNN Serranía de los Yariguíes",
+      "precio": "",
+      "detalle": "Guía certificado · Transporte 4x4 hasta la entrada del parque · Póliza Colasistencias. No incluye hidratación ni refrigerio. Lleva calzado de trekking, ropa impermeable, repelente y equipaje ligero",
+      "categoria": "PNN Yariguíes",
+      "foto": "",
+      "activo": true,
+      "traducciones": {
+        "en": {
+          "nombre": "Yariguíes National Park",
+          "detalle": "Certified guide · 4x4 transport to the park entrance · Travel insurance. Hydration and snacks not included. Bring trekking shoes, waterproof clothing, insect repellent and light luggage",
+          "categoria": "Yariguíes National Park"
+        },
+        "fr": {
+          "nombre": "Parc national Serranía de los Yariguíes",
+          "detalle": "Guide certifié · Transport 4x4 jusqu'à l'entrée du parc · Assurance voyage. Hydratation et collation non incluses. Prévoir chaussures de trek, vêtements imperméables, répulsif et bagage léger",
+          "categoria": "Parc national Yariguíes"
+        },
+        "pt": {
+          "nombre": "PNN Serranía de los Yariguíes",
+          "detalle": "Guia certificado · Transporte 4x4 até a entrada do parque · Seguro viagem. Não inclui hidratação nem lanche. Leve calçado de trekking, roupa impermeável, repelente e bagagem leve",
+          "categoria": "PNN Yariguíes"
+        },
+        "zh": {
+          "nombre": "亚里圭埃斯山脊国家公园",
+          "detalle": "持证向导 · 四驱车接送至公园入口 · 含旅行保险。不含饮水与点心。请穿徒步鞋，携带防水衣物、驱虫剂，轻装出行",
+          "categoria": "亚里圭埃斯国家公园"
+        }
+      }
+    },
+    {
+      "nombre": "Aventura Cueva de los Aviones",
+      "precio": "",
+      "detalle": "3 horas · San Vicente de Chucurí · Canyoning, guianza, almuerzo campesino, ingreso a piscinas naturales y obsequio · Póliza Colasistencias. No incluye transporte ni refrigerio. Lleva calzado de agarre, ropa de cambio y ropa de baño",
+      "categoria": "Aventura",
+      "foto": "",
+      "activo": true,
+      "traducciones": {
+        "en": {
+          "nombre": "Cueva de los Aviones Adventure",
+          "detalle": "3 hours · San Vicente de Chucurí · Canyoning, guiding, country lunch, access to natural pools and a gift · Travel insurance. Transport and snacks not included. Bring grip footwear, a change of clothes and swimwear",
+          "categoria": "Adventure"
+        },
+        "fr": {
+          "nombre": "Aventure Cueva de los Aviones",
+          "detalle": "3 heures · San Vicente de Chucurí · Canyoning, encadrement, déjeuner paysan, accès aux piscines naturelles et cadeau · Assurance voyage. Transport et collation non inclus. Prévoir chaussures adhérentes, rechange et maillot",
+          "categoria": "Aventure"
+        },
+        "pt": {
+          "nombre": "Aventura Cueva de los Aviones",
+          "detalle": "3 horas · San Vicente de Chucurí · Canyoning, guia, almoço caipira, acesso a piscinas naturais e brinde · Seguro viagem. Não inclui transporte nem lanche. Leve calçado com aderência, roupa extra e roupa de banho",
+          "categoria": "Aventura"
+        },
+        "zh": {
+          "nombre": "飞鸟洞探险",
+          "detalle": "3 小时 · San Vicente de Chucurí · 溪降、向导、乡村午餐、天然泳池入场与小礼物 · 含旅行保险。不含交通与点心。请穿防滑鞋，携带替换衣物与泳衣",
+          "categoria": "户外探险"
+        }
+      }
+    },
+    {
+      "nombre": "Coffee Tour Montano de Niebla — Finca San Pedro",
+      "precio": "",
+      "detalle": "San Vicente de Chucurí · Transporte 4x4, caminata, guía local, desayuno, refrigerio y almuerzo campesino · Recorrido por cafetales, proceso artesanal del café y vista a la Serranía de los Yariguíes · Póliza Colasistencias. Lleva botas pantaneras, manga larga y repelente",
+      "categoria": "Turismo cultural",
+      "foto": "",
+      "activo": true,
+      "traducciones": {
+        "en": {
+          "nombre": "Cloud Forest Coffee Tour — Finca San Pedro",
+          "detalle": "San Vicente de Chucurí · 4x4 transport, hike, local guide, breakfast, snack and country lunch · Coffee plantation tour, artisanal coffee process and views of the Yariguíes range · Travel insurance. Bring rubber boots, long sleeves and insect repellent",
+          "categoria": "Cultural tourism"
+        },
+        "fr": {
+          "nombre": "Coffee Tour forêt de nuages — Finca San Pedro",
+          "detalle": "San Vicente de Chucurí · Transport 4x4, randonnée, guide local, petit-déjeuner, collation et déjeuner paysan · Visite des caféiers, processus artisanal du café et vue sur la Serranía de los Yariguíes · Assurance voyage. Prévoir bottes, manches longues et répulsif",
+          "categoria": "Tourisme culturel"
+        },
+        "pt": {
+          "nombre": "Coffee Tour da mata nublada — Finca San Pedro",
+          "detalle": "San Vicente de Chucurí · Transporte 4x4, caminhada, guia local, café da manhã, lanche e almoço caipira · Percurso pelos cafezais, processo artesanal do café e vista da Serranía de los Yariguíes · Seguro viagem. Leve botas, manga comprida e repelente",
+          "categoria": "Turismo cultural"
+        },
+        "zh": {
+          "nombre": "云雾林咖啡之旅 — 圣佩德罗庄园",
+          "detalle": "San Vicente de Chucurí · 四驱车、徒步、当地向导、早餐、点心与乡村午餐 · 参观咖啡园、手工咖啡制作流程，远眺亚里圭埃斯山脊 · 含旅行保险。请穿雨靴、长袖衣物，携带驱虫剂",
+          "categoria": "文化体验"
+        }
+      }
+    },
+    {
+      "nombre": "Chocolatero por un día",
+      "precio": "",
+      "detalle": "Casa taller de un maestro chocolatero chucureño · Aprendizaje de la mano de un experto, guía local y degustación de la chocolatina que tú mismo preparas · Póliza Colasistencias",
+      "categoria": "Turismo cultural",
+      "foto": "",
+      "activo": true,
+      "traducciones": {
+        "en": {
+          "nombre": "Chocolate Maker for a Day",
+          "detalle": "Workshop home of a master chocolate maker from Chucurí · Learn from an expert, local guide, and taste the chocolate bar you make yourself · Travel insurance",
+          "categoria": "Cultural tourism"
+        },
+        "fr": {
+          "nombre": "Chocolatier d'un jour",
+          "detalle": "Atelier d'un maître chocolatier de Chucurí · Apprentissage auprès d'un expert, guide local et dégustation du chocolat que vous préparez vous-même · Assurance voyage",
+          "categoria": "Tourisme culturel"
+        },
+        "pt": {
+          "nombre": "Chocolateiro por um dia",
+          "detalle": "Ateliê de um mestre chocolateiro de Chucurí · Aprendizado com um especialista, guia local e degustação do chocolate que você mesmo prepara · Seguro viagem",
+          "categoria": "Turismo cultural"
+        },
+        "zh": {
+          "nombre": "一日巧克力师体验",
+          "detalle": "在丘库里巧克力师的工坊 · 跟随师傅学习、当地向导，并品尝自己亲手做的巧克力 · 含旅行保险",
+          "categoria": "文化体验"
+        }
+      }
+    },
+    {
+      "nombre": "Experiencia Chocolatera Rural — Finca El Edén",
+      "precio": "",
+      "detalle": "San Vicente de Chucurí · Transporte 4x4 ida y regreso, guía local, senderismo, desayuno, almuerzo y onces chucureñas · Elaboración de chocolate casero y avistamiento de aves cerca de la reserva Reinita Azul · Póliza Colasistencias. Lleva ropa de campo, zapato cerrado y repelente",
+      "categoria": "Aviturismo",
+      "foto": "",
+      "activo": true,
+      "traducciones": {
+        "en": {
+          "nombre": "Rural Chocolate Experience — Finca El Edén",
+          "detalle": "San Vicente de Chucurí · Round-trip 4x4 transport, local guide, hiking, breakfast, lunch and afternoon tea · Homemade chocolate making and birdwatching near the Reinita Azul reserve · Travel insurance. Bring field clothing, closed shoes and insect repellent",
+          "categoria": "Birdwatching"
+        },
+        "fr": {
+          "nombre": "Expérience chocolatière rurale — Finca El Edén",
+          "detalle": "San Vicente de Chucurí · Transport 4x4 aller-retour, guide local, randonnée, petit-déjeuner, déjeuner et goûter chucureño · Fabrication de chocolat maison et observation des oiseaux près de la réserve Reinita Azul · Assurance voyage. Prévoir tenue de terrain, chaussures fermées et répulsif",
+          "categoria": "Observation des oiseaux"
+        },
+        "pt": {
+          "nombre": "Experiência chocolateira rural — Finca El Edén",
+          "detalle": "San Vicente de Chucurí · Transporte 4x4 ida e volta, guia local, caminhada, café da manhã, almoço e lanche chucureño · Produção de chocolate caseiro e observação de aves perto da reserva Reinita Azul · Seguro viagem. Leve roupa de campo, calçado fechado e repelente",
+          "categoria": "Observação de aves"
+        },
+        "zh": {
+          "nombre": "乡村巧克力体验 — 伊甸庄园",
+          "detalle": "San Vicente de Chucurí · 四驱车往返、当地向导、徒步、早餐、午餐与当地下午茶 · 手工制作巧克力，并在蓝莺保护区附近观鸟 · 含旅行保险。请穿适合野外的衣物与包头鞋，携带驱虫剂",
+          "categoria": "观鸟"
+        }
+      }
+    }
+  ]
+}

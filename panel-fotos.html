@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Fotos de Explore Colombia Travels</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{background:#f4f6f8;color:#17202a;padding:24px}
+.caja{max-width:720px;margin:0 auto}
+h1{font-size:1.5rem;color:#9A6B00;margin-bottom:4px}
+.sub{color:#667085;margin-bottom:22px;font-size:.94rem;line-height:1.5}
+.paso{background:#fff;border-radius:14px;padding:20px;margin-bottom:14px;border:1px solid #e4e8ee}
+.paso b{color:#9A6B00}
+button{background:#9A6B00;color:#fff;border:0;border-radius:50px;padding:14px 28px;
+font-size:1rem;font-weight:700;cursor:pointer}
+button:hover{opacity:.9}
+.lista{margin-top:18px;display:grid;gap:12px}
+.foto{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid #e4e8ee;
+border-radius:12px;padding:10px}
+.foto img{width:74px;height:74px;object-fit:cover;border-radius:8px;flex:none}
+.foto input{flex:1;min-width:0;font-size:.8rem;padding:9px;border:1px solid #d6dce4;
+border-radius:8px;background:#fbfcfd;font-family:monospace}
+.foto .copiar{padding:9px 15px;font-size:.85rem;border-radius:8px}
+.vacio{color:#98a2b3;text-align:center;padding:26px;font-size:.92rem}
+</style></head><body><div class="caja">
+<h1>Fotos de Explore Colombia Travels</h1>
+<p class="sub">Sube una foto, copia el enlace y pégalo en la columna <b>foto</b> de tu hoja.
+La foto queda guardada y se optimiza sola para que la página cargue rápido.</p>
+
+<div class="paso">
+  <p style="margin-bottom:14px"><b>1.</b> Sube tus fotos</p>
+  <button id="subir">Subir fotos</button>
+</div>
+
+<div class="paso">
+  <p style="margin-bottom:6px"><b>2.</b> Copia el enlace de cada una</p>
+  <div class="lista" id="lista"><div class="vacio">Todavía no has subido ninguna foto.</div></div>
+</div>
+
+<div class="paso">
+  <p><b>3.</b> Pega el enlace en tu hoja: <a href="https://docs.google.com/spreadsheets/d/1QHSRalumUVdc6mJeQkj_Qos1S52NjtyYD0RmAixrrp4/edit" target="_blank"
+  rel="noopener" style="color:#9A6B00">abrir la hoja</a></p>
+</div>
+</div>
+<script src="https://upload-widget.cloudinary.com/global/all.js"></script>
+<script>
+var lista = document.getElementById("lista"), primera = true;
+var widget = cloudinary.createUploadWidget({
+  cloudName: "hvsvueyf", uploadPreset: "saaaaaaa",
+  sources: ["local", "camera", "url", "instagram"],
+  multiple: true, language: "es", maxImageFileSize: 10000000,
+  clientAllowedFormats: ["png", "jpg", "jpeg", "webp", "heic"]
+}, function(error, resultado) {
+  if (error || !resultado || resultado.event !== "success") return;
+  if (primera) { lista.innerHTML = ""; primera = false; }
+  var url = resultado.info.secure_url;
+  var fila = document.createElement("div");
+  fila.className = "foto";
+  fila.innerHTML = '<img src="' + url + '" alt="">' +
+    '<input readonly value="' + url + '">' +
+    '<button class="copiar">Copiar</button>';
+  fila.querySelector(".copiar").onclick = function() {
+    var campo = fila.querySelector("input");
+    campo.select();
+    navigator.clipboard.writeText(campo.value);
+    this.textContent = "Copiado";
+    var boton = this;
+    setTimeout(function() { boton.textContent = "Copiar"; }, 1600);
+  };
+  lista.appendChild(fila);
+});
+document.getElementById("subir").onclick = function() { widget.open(); };
+</script></body></html>

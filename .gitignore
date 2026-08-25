@@ -1,0 +1,21 @@
+# Nada de esto sale a internet: la carpeta del cliente es también
+# el cuaderno de trabajo interno.
+_interno/
+originales/
+__pycache__/
+*.py
+*.pyc
+*.csv
+
+# Documentos internos: el informe trae la estrategia de precio y el speech
+# la de venta. Si esto se publica, el cliente lo lee.
+informe.md
+speech-venta.md
+conectar-cuentas.md
+cotizacion.md
+repo-siguiente-paso.md
+
+# Configuración y credenciales
+cuentas.json
+datos.json
+sitio.json
