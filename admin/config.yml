@@ -10,21 +10,22 @@
   "display_url": "/",
   "collections": [
     {
-      "name": "catalogo",
-      "label": "Mi página",
+      "name": "contenido",
+      "label": "Mi pagina",
       "files": [
         {
           "file": "contenido/catalogo.json",
           "name": "experiencias",
-          "label": "Experiencias",
-          "description": "Agrega, cambia o esconde tus experiencias. Se ven en la página al guardar.",
+          "label": "1. Mis experiencias",
+          "description": "Lo que se ve en tu pagina. Cambia un precio, sube una foto o esconde una experiencia. Al guardar, tu pagina se actualiza en un minuto.",
           "fields": [
             {
               "name": "items",
               "label": "Experiencias",
-              "label_singular": "Experiencia",
+              "label_singular": "experiencia",
               "widget": "list",
-              "summary": "{{fields.nombre}} — {{fields.precio}}",
+              "collapsed": false,
+              "summary": "{{fields.nombre}}",
               "fields": [
                 {
                   "name": "nombre",
@@ -32,11 +33,18 @@
                   "widget": "string"
                 },
                 {
+                  "name": "foto",
+                  "label": "Foto",
+                  "widget": "image",
+                  "required": false,
+                  "hint": "Toca aquí para subir una foto de tu celular o computador. Se ve completa, sin recortar."
+                },
+                {
                   "name": "precio",
                   "label": "Precio",
                   "widget": "string",
                   "required": false,
-                  "hint": "Escríbelo como quieres que se vea: $190.000. Si lo dejas vacío la página dice 'Consultar precio'."
+                  "hint": "Como quieres que se vea: $190.000. Vacío = dice 'Consultar precio'."
                 },
                 {
                   "name": "detalle",
@@ -53,136 +61,11 @@
                   "hint": "El grupo donde aparece. Si escribes una nueva, se crea sola."
                 },
                 {
-                  "name": "foto",
-                  "label": "Foto",
-                  "widget": "image",
-                  "required": false,
-                  "hint": "Se ve completa, sin recortar. Puede ser vertical."
-                },
-                {
                   "name": "activo",
                   "label": "Visible en la página",
                   "widget": "boolean",
                   "default": true,
                   "hint": "Apágalo para esconder una experiencia de temporada sin borrarla."
-                },
-                {
-                  "name": "traducciones",
-                  "label": "Traducciones",
-                  "widget": "object",
-                  "required": false,
-                  "collapsed": true,
-                  "fields": [
-                    {
-                      "name": "en",
-                      "label": "Inglés",
-                      "widget": "object",
-                      "required": false,
-                      "collapsed": true,
-                      "fields": [
-                        {
-                          "name": "nombre",
-                          "label": "Nombre",
-                          "widget": "string",
-                          "required": false
-                        },
-                        {
-                          "name": "detalle",
-                          "label": "Descripción",
-                          "widget": "text",
-                          "required": false
-                        },
-                        {
-                          "name": "categoria",
-                          "label": "Categoría",
-                          "widget": "string",
-                          "required": false
-                        }
-                      ]
-                    },
-                    {
-                      "name": "fr",
-                      "label": "Francés",
-                      "widget": "object",
-                      "required": false,
-                      "collapsed": true,
-                      "fields": [
-                        {
-                          "name": "nombre",
-                          "label": "Nombre",
-                          "widget": "string",
-                          "required": false
-                        },
-                        {
-                          "name": "detalle",
-                          "label": "Descripción",
-                          "widget": "text",
-                          "required": false
-                        },
-                        {
-                          "name": "categoria",
-                          "label": "Categoría",
-                          "widget": "string",
-                          "required": false
-                        }
-                      ]
-                    },
-                    {
-                      "name": "pt",
-                      "label": "Portugués",
-                      "widget": "object",
-                      "required": false,
-                      "collapsed": true,
-                      "fields": [
-                        {
-                          "name": "nombre",
-                          "label": "Nombre",
-                          "widget": "string",
-                          "required": false
-                        },
-                        {
-                          "name": "detalle",
-                          "label": "Descripción",
-                          "widget": "text",
-                          "required": false
-                        },
-                        {
-                          "name": "categoria",
-                          "label": "Categoría",
-                          "widget": "string",
-                          "required": false
-                        }
-                      ]
-                    },
-                    {
-                      "name": "zh",
-                      "label": "Mandarín",
-                      "widget": "object",
-                      "required": false,
-                      "collapsed": true,
-                      "fields": [
-                        {
-                          "name": "nombre",
-                          "label": "Nombre",
-                          "widget": "string",
-                          "required": false
-                        },
-                        {
-                          "name": "detalle",
-                          "label": "Descripción",
-                          "widget": "text",
-                          "required": false
-                        },
-                        {
-                          "name": "categoria",
-                          "label": "Categoría",
-                          "widget": "string",
-                          "required": false
-                        }
-                      ]
-                    }
-                  ],
-                  "hint": "Lo que dejes vacío se muestra en español. Nunca queda en blanco."
                 }
               ]
             }
@@ -191,14 +74,15 @@
         {
           "file": "contenido/galeria.json",
           "name": "galeria",
-          "label": "Galería de fotos",
-          "description": "Las fotos sueltas de la página. El orden de la lista es el orden en que se ven.",
+          "label": "2. Galeria de fotos",
+          "description": "Las fotos sueltas de tu pagina. El orden de la lista es el orden en que se ven.",
           "fields": [
             {
               "name": "fotos",
               "label": "Fotos",
-              "label_singular": "Foto",
+              "label_singular": "foto",
               "widget": "list",
+              "collapsed": false,
               "field": {
                 "name": "imagen",
                 "label": "Foto",
@@ -210,8 +94,8 @@
         {
           "file": "contenido/textos.json",
           "name": "textos",
-          "label": "Textos y video",
-          "description": "Lo que va fuera del catálogo.",
+          "label": "3. Textos y video",
+          "description": "Lo que va fuera del catalogo.",
           "fields": [
             {
               "name": "eslogan",
@@ -221,22 +105,118 @@
             },
             {
               "name": "nosotros",
-              "label": "Quiénes somos",
+              "label": "Quienes somos",
               "widget": "text",
               "required": false
             },
             {
               "name": "video",
-              "label": "Video de portada (enlace de YouTube)",
+              "label": "Video de portada",
               "widget": "string",
               "required": false,
-              "hint": "Pega el enlace del video. Vacío = se queda el actual."
+              "hint": "Pega el enlace de YouTube. Vacio = se queda el actual."
             },
             {
               "name": "horario",
               "label": "Horario",
               "widget": "string",
               "required": false
+            }
+          ]
+        },
+        {
+          "file": "contenido/traducciones.json",
+          "name": "traducciones",
+          "label": "4. Traducciones (opcional)",
+          "description": "Solo si quieres que tus experiencias se vean en otros idiomas. Lo que dejes vacio se muestra en espanol: nunca queda en blanco.",
+          "fields": [
+            {
+              "name": "items",
+              "label": "Traducciones",
+              "label_singular": "traduccion",
+              "widget": "list",
+              "collapsed": true,
+              "summary": "{{fields.nombre}}",
+              "fields": [
+                {
+                  "name": "nombre",
+                  "label": "¿Cuál experiencia?",
+                  "widget": "string",
+                  "hint": "Escríbelo IGUAL que en la sección Experiencias."
+                },
+                {
+                  "name": "nombre_en",
+                  "label": "Nombre en inglés",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "detalle_en",
+                  "label": "Descripción en inglés",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "name": "categoria_en",
+                  "label": "Categoría en inglés",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "nombre_fr",
+                  "label": "Nombre en francés",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "detalle_fr",
+                  "label": "Descripción en francés",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "name": "categoria_fr",
+                  "label": "Categoría en francés",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "nombre_pt",
+                  "label": "Nombre en portugués",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "detalle_pt",
+                  "label": "Descripción en portugués",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "name": "categoria_pt",
+                  "label": "Categoría en portugués",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "nombre_zh",
+                  "label": "Nombre en mandarín",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "detalle_zh",
+                  "label": "Descripción en mandarín",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "name": "categoria_zh",
+                  "label": "Categoría en mandarín",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
             }
           ]
         }

@@ -105,7 +105,7 @@ font-weight:700;padding:14px 22px;border-radius:50px;box-shadow:0 4px 14px rgba(
   var POR_CATEGORIA = true, OTRAS = "更多体验";
   var WA = "573142984216", PLANTILLA_WA = "您好 Explore Colombia Travels，我想了解：__ITEM__", RESERVAR = "预订";
   var SIN_PRECIO = "价格咨询", IDIOMA = "zh";
-  var URL_JSON = "contenido/catalogo.json";
+  var URL_JSON = "contenido/catalogo.json", URL_TRAD = "contenido/traducciones.json";
   var TRADUCIBLES = ["nombre","detalle","categoria"];
   var caja = document.getElementById("catalogo");
   if (!URL_HOJA && !URL_JSON) return;
@@ -162,20 +162,37 @@ font-weight:700;padding:14px 22px;border-radius:50px;box-shadow:0 4px 14px rgba(
   // Contenido del panel de edicion. Es la fuente principal cuando existe;
   // la hoja de Google queda como alternativa para clientes sin panel.
   function desdeJSON(){
-    return fetch(URL_JSON, {cache:"no-store"}).then(function(r){
-      if(!r.ok) throw 0; return r.json();
-    }).then(function(d){
-      var filas = (d && d.items) || [];
+    // Las traducciones viven en su propio archivo y se atan por el nombre en
+    // español. Separarlas es lo que deja el formulario del dia a dia simple.
+    var pideTrad = (IDIOMA !== "es" && URL_TRAD)
+      ? fetch(URL_TRAD, {cache:"no-store"}).then(function(r){ return r.ok?r.json():{}; })
+          .catch(function(){ return {}; })
+      : Promise.resolve({});
+
+    return Promise.all([
+      fetch(URL_JSON, {cache:"no-store"}).then(function(r){
+        if(!r.ok) throw 0; return r.json(); }),
+      pideTrad
+    ]).then(function(par){
+      var d = par[0], td = par[1] || {};
+      var mapa = {};
+      ((td && td.items) || []).forEach(function(t){
+        if (t && t.nombre) mapa[String(t.nombre).trim().toLowerCase()] = t;
+      });
       var salida = [];
-      filas.forEach(function(f){
+      ((d && d.items) || []).forEach(function(f){
         if (!f || !f.nombre) return;
         if (f.activo === false) return;
-        var tr = (f.traducciones && f.traducciones[IDIOMA]) || {};
+        var t = mapa[String(f.nombre).trim().toLowerCase()] || {};
+        function elige(campo){
+          var propio = t[campo + "_" + IDIOMA];
+          return (IDIOMA !== "es" && propio) ? propio : (f[campo] || "");
+        }
         salida.push({
-          nombre: (IDIOMA!=="es" && tr.nombre) || f.nombre,
+          nombre: elige("nombre") || f.nombre,
           precio: f.precio || "",
-          detalle: (IDIOMA!=="es" && tr.detalle) || f.detalle || "",
-          categoria: (IDIOMA!=="es" && tr.categoria) || f.categoria || "",
+          detalle: elige("detalle"),
+          categoria: elige("categoria"),
           foto: f.foto || "", video: f.video || ""
         });
       });
