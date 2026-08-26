@@ -1,173 +1,246 @@
-# Panel de edición de Explore Colombia Travels.
-# Lo genera panel_admin.py: no editar a mano, se pisa en la siguiente build.
-backend:
-  name: git-gateway
-  branch: main
-
-media_folder: "fotos/subidas"
-public_folder: "fotos/subidas"
-
-locale: "es"
-
-site_url: "/"
-display_url: "/"
-
-collections:
-  - name: "catalogo"
-    label: "Mi página"
-    files:
-      - file: "contenido/catalogo.json"
-        name: "experiencias"
-        label: "Experiencias"
-        description: "Agrega, cambia o esconde tus experiencias. Se ven en la página al guardar."
-        fields:
-          - name: "items"
-            label: "Experiencias"
-            label_singular: "Experiencia"
-            widget: "list"
-            summary: "{{fields.nombre}} — {{fields.precio}}"
-            fields:
-          - name: nombre
-            label: "Nombre de la experiencia"
-            widget: string
-          - name: precio
-            label: "Precio"
-            widget: string
-            required: false
-            hint: "Escríbelo como quieres que se vea: $190.000. Si lo dejas vacío la página dice 'Consultar precio'."
-          - name: detalle
-            label: "Descripción"
-            widget: text
-            required: false
-            hint: "Duración, dónde es y qué incluye."
-          - name: categoria
-            label: "Categoría"
-            widget: string
-            required: false
-            hint: "El grupo donde aparece. Si escribes una nueva, se crea sola."
-          - name: foto
-            label: "Foto"
-            widget: image
-            required: false
-            hint: "Se ve completa, sin recortar. Puede ser vertical."
-          - name: activo
-            label: "Visible en la página"
-            widget: boolean
-            default: true
-            hint: "Apágalo para esconder una experiencia de temporada sin borrarla."
-          - name: traducciones
-            label: "Traducciones"
-            widget: object
-            required: false
-            collapsed: true
-            hint: "Lo que dejes vacío se muestra en español. Nunca queda en blanco."
-            fields:
-              - name: en
-                label: "Inglés"
-                widget: object
-                required: false
-                collapsed: true
-                fields:
-                  - name: nombre
-                    label: "Nombre"
-                    widget: string
-                    required: false
-                  - name: detalle
-                    label: "Descripción"
-                    widget: text
-                    required: false
-                  - name: categoria
-                    label: "Categoría"
-                    widget: string
-                    required: false
-              - name: fr
-                label: "Francés"
-                widget: object
-                required: false
-                collapsed: true
-                fields:
-                  - name: nombre
-                    label: "Nombre"
-                    widget: string
-                    required: false
-                  - name: detalle
-                    label: "Descripción"
-                    widget: text
-                    required: false
-                  - name: categoria
-                    label: "Categoría"
-                    widget: string
-                    required: false
-              - name: pt
-                label: "Portugués"
-                widget: object
-                required: false
-                collapsed: true
-                fields:
-                  - name: nombre
-                    label: "Nombre"
-                    widget: string
-                    required: false
-                  - name: detalle
-                    label: "Descripción"
-                    widget: text
-                    required: false
-                  - name: categoria
-                    label: "Categoría"
-                    widget: string
-                    required: false
-              - name: zh
-                label: "Mandarín"
-                widget: object
-                required: false
-                collapsed: true
-                fields:
-                  - name: nombre
-                    label: "Nombre"
-                    widget: string
-                    required: false
-                  - name: detalle
-                    label: "Descripción"
-                    widget: text
-                    required: false
-                  - name: categoria
-                    label: "Categoría"
-                    widget: string
-                    required: false
-
-      - file: "contenido/galeria.json"
-        name: "galeria"
-        label: "Galería de fotos"
-        description: "Las fotos sueltas de la página. El orden de la lista es el orden en que se ven."
-        fields:
-          - name: "fotos"
-            label: "Fotos"
-            label_singular: "Foto"
-            widget: "list"
-            field:
-              name: "imagen"
-              label: "Foto"
-              widget: "image"
-
-      - file: "contenido/textos.json"
-        name: "textos"
-        label: "Textos y video"
-        description: "Lo que va fuera del catálogo."
-        fields:
-          - name: "eslogan"
-            label: "Frase de portada"
-            widget: "string"
-            required: false
-          - name: "nosotros"
-            label: "Quiénes somos"
-            widget: "text"
-            required: false
-          - name: "video"
-            label: "Video de portada (enlace de YouTube)"
-            widget: "string"
-            required: false
-            hint: "Pega el enlace del video de YouTube. Vacío = se queda el actual."
-          - name: "horario"
-            label: "Horario"
-            widget: "string"
-            required: false
+{
+  "backend": {
+    "name": "git-gateway",
+    "branch": "main"
+  },
+  "media_folder": "fotos/subidas",
+  "public_folder": "fotos/subidas",
+  "locale": "es",
+  "site_url": "/",
+  "display_url": "/",
+  "collections": [
+    {
+      "name": "catalogo",
+      "label": "Mi página",
+      "files": [
+        {
+          "file": "contenido/catalogo.json",
+          "name": "experiencias",
+          "label": "Experiencias",
+          "description": "Agrega, cambia o esconde tus experiencias. Se ven en la página al guardar.",
+          "fields": [
+            {
+              "name": "items",
+              "label": "Experiencias",
+              "label_singular": "Experiencia",
+              "widget": "list",
+              "summary": "{{fields.nombre}} — {{fields.precio}}",
+              "fields": [
+                {
+                  "name": "nombre",
+                  "label": "Nombre de la experiencia",
+                  "widget": "string"
+                },
+                {
+                  "name": "precio",
+                  "label": "Precio",
+                  "widget": "string",
+                  "required": false,
+                  "hint": "Escríbelo como quieres que se vea: $190.000. Si lo dejas vacío la página dice 'Consultar precio'."
+                },
+                {
+                  "name": "detalle",
+                  "label": "Descripción",
+                  "widget": "text",
+                  "required": false,
+                  "hint": "Duración, dónde es y qué incluye."
+                },
+                {
+                  "name": "categoria",
+                  "label": "Categoría",
+                  "widget": "string",
+                  "required": false,
+                  "hint": "El grupo donde aparece. Si escribes una nueva, se crea sola."
+                },
+                {
+                  "name": "foto",
+                  "label": "Foto",
+                  "widget": "image",
+                  "required": false,
+                  "hint": "Se ve completa, sin recortar. Puede ser vertical."
+                },
+                {
+                  "name": "activo",
+                  "label": "Visible en la página",
+                  "widget": "boolean",
+                  "default": true,
+                  "hint": "Apágalo para esconder una experiencia de temporada sin borrarla."
+                },
+                {
+                  "name": "traducciones",
+                  "label": "Traducciones",
+                  "widget": "object",
+                  "required": false,
+                  "collapsed": true,
+                  "fields": [
+                    {
+                      "name": "en",
+                      "label": "Inglés",
+                      "widget": "object",
+                      "required": false,
+                      "collapsed": true,
+                      "fields": [
+                        {
+                          "name": "nombre",
+                          "label": "Nombre",
+                          "widget": "string",
+                          "required": false
+                        },
+                        {
+                          "name": "detalle",
+                          "label": "Descripción",
+                          "widget": "text",
+                          "required": false
+                        },
+                        {
+                          "name": "categoria",
+                          "label": "Categoría",
+                          "widget": "string",
+                          "required": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "fr",
+                      "label": "Francés",
+                      "widget": "object",
+                      "required": false,
+                      "collapsed": true,
+                      "fields": [
+                        {
+                          "name": "nombre",
+                          "label": "Nombre",
+                          "widget": "string",
+                          "required": false
+                        },
+                        {
+                          "name": "detalle",
+                          "label": "Descripción",
+                          "widget": "text",
+                          "required": false
+                        },
+                        {
+                          "name": "categoria",
+                          "label": "Categoría",
+                          "widget": "string",
+                          "required": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "pt",
+                      "label": "Portugués",
+                      "widget": "object",
+                      "required": false,
+                      "collapsed": true,
+                      "fields": [
+                        {
+                          "name": "nombre",
+                          "label": "Nombre",
+                          "widget": "string",
+                          "required": false
+                        },
+                        {
+                          "name": "detalle",
+                          "label": "Descripción",
+                          "widget": "text",
+                          "required": false
+                        },
+                        {
+                          "name": "categoria",
+                          "label": "Categoría",
+                          "widget": "string",
+                          "required": false
+                        }
+                      ]
+                    },
+                    {
+                      "name": "zh",
+                      "label": "Mandarín",
+                      "widget": "object",
+                      "required": false,
+                      "collapsed": true,
+                      "fields": [
+                        {
+                          "name": "nombre",
+                          "label": "Nombre",
+                          "widget": "string",
+                          "required": false
+                        },
+                        {
+                          "name": "detalle",
+                          "label": "Descripción",
+                          "widget": "text",
+                          "required": false
+                        },
+                        {
+                          "name": "categoria",
+                          "label": "Categoría",
+                          "widget": "string",
+                          "required": false
+                        }
+                      ]
+                    }
+                  ],
+                  "hint": "Lo que dejes vacío se muestra en español. Nunca queda en blanco."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "contenido/galeria.json",
+          "name": "galeria",
+          "label": "Galería de fotos",
+          "description": "Las fotos sueltas de la página. El orden de la lista es el orden en que se ven.",
+          "fields": [
+            {
+              "name": "fotos",
+              "label": "Fotos",
+              "label_singular": "Foto",
+              "widget": "list",
+              "field": {
+                "name": "imagen",
+                "label": "Foto",
+                "widget": "image"
+              }
+            }
+          ]
+        },
+        {
+          "file": "contenido/textos.json",
+          "name": "textos",
+          "label": "Textos y video",
+          "description": "Lo que va fuera del catálogo.",
+          "fields": [
+            {
+              "name": "eslogan",
+              "label": "Frase de portada",
+              "widget": "string",
+              "required": false
+            },
+            {
+              "name": "nosotros",
+              "label": "Quiénes somos",
+              "widget": "text",
+              "required": false
+            },
+            {
+              "name": "video",
+              "label": "Video de portada (enlace de YouTube)",
+              "widget": "string",
+              "required": false,
+              "hint": "Pega el enlace del video. Vacío = se queda el actual."
+            },
+            {
+              "name": "horario",
+              "label": "Horario",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
