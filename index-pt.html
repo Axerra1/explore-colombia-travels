@@ -294,4 +294,24 @@ font-weight:700;padding:14px 22px;border-radius:50px;box-shadow:0 4px 14px rgba(
   }
 })();
 </script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+// El correo de invitacion llega a la RAIZ del sitio con el token en la URL
+// (#invite_token=...), no a /admin. Sin este widget aqui, el token se ignora,
+// el cliente ve la pagina normal y cree que la invitacion no sirvio.
+(function(){
+  var ni = window.netlifyIdentity;
+  if (!ni) return;
+  ni.on("init", function(user){
+    if (!user) {
+      ni.on("login", function(){ document.location.href = "/admin/"; });
+    }
+  });
+  // Token en la URL: abrir el dialogo para que elija su contrasena.
+  var h = window.location.hash || "";
+  if (h.indexOf("invite_token=") > -1 || h.indexOf("recovery_token=") > -1) {
+    ni.open();
+  }
+})();
+</script>
 </body></html>
