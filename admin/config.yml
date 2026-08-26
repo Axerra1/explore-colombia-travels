@@ -37,7 +37,63 @@
                   "label": "Foto",
                   "widget": "image",
                   "required": false,
-                  "hint": "Toca aquí para subir una foto de tu celular o computador. Se ve completa, sin recortar."
+                  "hint": "Toca aquí para subir una foto de tu celular o computador."
+                },
+                {
+                  "name": "encuadre",
+                  "label": "Cómo se ve la foto",
+                  "widget": "select",
+                  "required": false,
+                  "default": "completa",
+                  "options": [
+                    {
+                      "label": "Completa (no se recorta nada)",
+                      "value": "completa"
+                    },
+                    {
+                      "label": "Cuadrada",
+                      "value": "cuadrada"
+                    },
+                    {
+                      "label": "Horizontal (panorámica)",
+                      "value": "horizontal"
+                    },
+                    {
+                      "label": "Vertical (alta)",
+                      "value": "vertical"
+                    }
+                  ],
+                  "hint": "Si eliges una forma, la foto se recorta para llenarla. Usa 'Enfoque' para decidir qué parte se conserva."
+                },
+                {
+                  "name": "enfoque",
+                  "label": "Enfoque del recorte",
+                  "widget": "select",
+                  "required": false,
+                  "default": "centro",
+                  "options": [
+                    {
+                      "label": "Centro",
+                      "value": "centro"
+                    },
+                    {
+                      "label": "Arriba (caras, cielo)",
+                      "value": "arriba"
+                    },
+                    {
+                      "label": "Abajo",
+                      "value": "abajo"
+                    },
+                    {
+                      "label": "Izquierda",
+                      "value": "izquierda"
+                    },
+                    {
+                      "label": "Derecha",
+                      "value": "derecha"
+                    }
+                  ],
+                  "hint": "Solo aplica si arriba elegiste una forma distinta de 'Completa'."
                 },
                 {
                   "name": "precio",

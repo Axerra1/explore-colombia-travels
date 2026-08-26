@@ -65,6 +65,11 @@ background:var(--item);border:1px solid rgba(0,0,0,.07)}
 .cta2{margin-left:0;display:block;max-width:280px;margin-left:auto;margin-right:auto}
 .navcat a{font-size:.76rem;padding:7px 13px}
 }
+.itemfoto.enc-cuadrada{aspect-ratio:1/1;object-fit:cover;width:100%;max-height:none}
+.itemfoto.enc-horizontal{aspect-ratio:16/10;object-fit:cover;width:100%;max-height:none}
+.itemfoto.enc-vertical{aspect-ratio:3/4;object-fit:cover;width:100%;max-height:none}
+.itemfoto.foco-arriba{object-position:top} .itemfoto.foco-abajo{object-position:bottom}
+.itemfoto.foco-izquierda{object-position:left} .itemfoto.foco-derecha{object-position:right}
 .itemfoto{max-width:100%;max-height:430px;width:auto;height:auto;border-radius:10px;margin:0 auto 14px;display:block;background:rgba(0,0,0,.06)}
 .videohero{max-width:960px;margin:0 auto;padding:40px 22px 0;text-align:center}
 .videohero .marco{position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.13)}
@@ -106,6 +111,7 @@ font-weight:700;padding:14px 22px;border-radius:50px;box-shadow:0 4px 14px rgba(
   var WA = "573142984216", PLANTILLA_WA = "Olá Explore Colombia Travels, quero informações sobre: __ITEM__", RESERVAR = "Reservar";
   var SIN_PRECIO = "Consultar preço", IDIOMA = "pt";
   var URL_JSON = "contenido/catalogo.json", URL_TRAD = "contenido/traducciones.json";
+  var URL_GAL_JSON = "contenido/galeria.json";
   var TRADUCIBLES = ["nombre","detalle","categoria"];
   var caja = document.getElementById("catalogo");
   if (!URL_HOJA && !URL_JSON) return;
@@ -144,7 +150,15 @@ font-weight:700;padding:14px 22px;border-radius:50px;box-shadow:0 4px 14px rgba(
   function tarjeta(it, nivel){
     nivel = nivel || "h3";
     var foto = (it.foto||"").trim(), img="";
-    if (fotoSegura(foto)) img='<img class="itemfoto" src="'+esc(foto)+'" alt="'+esc(it.nombre)+'" loading="lazy">';
+    if (fotoSegura(foto)){
+      var enc=(it.encuadre||"completa").toLowerCase(), foco=(it.enfoque||"centro").toLowerCase();
+      var cls="itemfoto";
+      if (enc && enc!=="completa"){
+        cls += " enc-"+enc;
+        if (foco && foco!=="centro") cls += " foco-"+foco;
+      }
+      img='<img class="'+cls+'" src="'+esc(foto)+'" alt="'+esc(it.nombre)+'" loading="lazy">';
+    }
     var reservar="";
     if (WA){
       var texto = PLANTILLA_WA.replace("__ITEM__", it.nombre);
@@ -193,7 +207,8 @@ font-weight:700;padding:14px 22px;border-radius:50px;box-shadow:0 4px 14px rgba(
           precio: f.precio || "",
           detalle: elige("detalle"),
           categoria: elige("categoria"),
-          foto: f.foto || "", video: f.video || ""
+          foto: f.foto || "", video: f.video || "",
+          encuadre: f.encuadre || "", enfoque: f.enfoque || ""
         });
       });
       if (!salida.length) throw 0;
@@ -287,7 +302,23 @@ font-weight:700;padding:14px 22px;border-radius:50px;box-shadow:0 4px 14px rgba(
   // Galeria: segunda pestaña de la misma hoja, una fila por foto.
   // El orden de las filas es el orden en que se ven.
   var caja_gal = document.getElementById("galeria");
-  if (caja_gal && URL_GALERIA) {
+
+  function pintarGaleria(urls){
+    if (!urls.length) throw 0;
+    caja_gal.innerHTML = urls.map(function(u,i){
+      return '<div class="item gal"><img src="'+esc(u)+'" alt="Foto '+(i+1)+'" loading="lazy"></div>';
+    }).join("");
+  }
+
+  // Galeria del panel de edicion. Manda sobre la hoja, igual que el catalogo.
+  if (caja_gal && URL_GAL_JSON) {
+    fetch(URL_GAL_JSON, {cache:"no-store"}).then(function(r){
+      if(!r.ok) throw 0; return r.json();
+    }).then(function(d){
+      pintarGaleria(((d && d.fotos) || []).filter(fotoSegura));
+    }).catch(function(){ /* se queda la galeria horneada */ });
+  }
+  else if (caja_gal && URL_GALERIA) {
     fetch(URL_GALERIA, {cache:"no-store"}).then(function(r){
       if(!r.ok) throw 0; return r.text();
     }).then(function(txt){
