@@ -2,7 +2,66 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Editar mi página — Explore Colombia Travels</title>
 <link rel="icon" href="data:,">
+<style>
+#avisoVersion{position:fixed;left:0;right:0;bottom:0;z-index:99999;display:none;
+background:#1b2430;color:#fff;padding:14px 18px;font:15px/1.5 'Segoe UI',sans-serif;
+box-shadow:0 -3px 18px rgba(0,0,0,.25)}
+#avisoVersion b{display:block;margin-bottom:2px}
+#avisoVersion button{float:right;margin-left:14px;background:#25d366;color:#fff;border:0;
+border-radius:50px;padding:9px 20px;font-weight:700;cursor:pointer;font-size:14px}
+</style>
 </head><body>
+<div id="avisoVersion">
+  <button onclick="location.reload()">Actualizar</button>
+  <b>Tu página cambió por fuera de esta ventana</b>
+  Actualiza antes de seguir editando, para que no se pierda nada.
+</div>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script src="https://unpkg.com/decap-cms@^3.1.10/dist/decap-cms.js"></script>
+<script>
+// El panel guarda contra la version del archivo que cargo al abrirse. Si el
+// repositorio avanza por fuera (otra pestaña, o nosotros publicando algo), el
+// guardado choca y falla sin decir gran cosa. Aqui se vigila esa version:
+// si el cliente esta quieto, se recarga solo; si esta escribiendo, se le avisa
+// en vez de recargarle encima y perderle el trabajo.
+(function(){
+  var ARCHIVO = "/contenido/catalogo.json";
+  var CADA = 30000;          // revisar cada 30 segundos
+  var QUIETO = 45000;        // recargar solo si lleva 45s sin tocar nada
+  var version = null, ultimoToque = Date.now(), avisado = false;
+
+  ["keydown","pointerdown","input"].forEach(function(ev){
+    document.addEventListener(ev, function(){ ultimoToque = Date.now(); }, true);
+  });
+
+  function leerVersion(){
+    return fetch(ARCHIVO, {method:"HEAD", cache:"no-store"})
+      .then(function(r){ return r.headers.get("etag") || r.headers.get("last-modified"); })
+      .catch(function(){ return null; });
+  }
+
+  // Tras guardar ella misma, la version cambia: eso NO es un aviso.
+  if (window.CMS && CMS.registerEventListener) {
+    CMS.registerEventListener({
+      name: "postSave",
+      handler: function(){ setTimeout(function(){
+        leerVersion().then(function(v){ if (v) version = v; });
+      }, 4000); }
+    });
+  }
+
+  leerVersion().then(function(v){ version = v; });
+
+  setInterval(function(){
+    if (avisado) return;
+    leerVersion().then(function(v){
+      if (!v || !version) { version = v || version; return; }
+      if (v === version) return;
+      if (Date.now() - ultimoToque > QUIETO) { location.reload(); return; }
+      avisado = true;
+      document.getElementById("avisoVersion").style.display = "block";
+    });
+  }, CADA);
+})();
+</script>
 </body></html>
